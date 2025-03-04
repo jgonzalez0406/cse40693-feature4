@@ -1,0 +1,60 @@
+/* dashboard.css */
+
+/* Navigation */
+.nav-list {
+  display: flex;
+  background-color: #004b8d;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-list a:hover {
+  background-color: #1565c0;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 0 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Example: Use Grid for future widgets */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1em;
+}
+
+/* For demonstration, let's place each <ul> item in a styled box */
+.dashboard-list {
+  background: #f7f7f7;
+  padding: 1em;
+  border-radius: 8px;
+  list-style: disc;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dashboard-container {
+    grid-template-columns: 1fr; /* single column on mobile */
+  }
+}

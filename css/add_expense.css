@@ -1,0 +1,84 @@
+/* add_expense.css */
+/* ---------------------------------------------------------- */
+/* Comment: Styles for the "Add Expense" form and layout.     */
+/* ---------------------------------------------------------- */
+
+/* Navigation Bar */
+.nav-list {
+  display: flex;
+  background-color: #004b8d;
+  list-style: none;
+  justify-content: flex-start;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-list a:hover {
+  background-color: #1565c0;
+}
+
+/* Page Title */
+h1 {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 1em;
+}
+
+/* Expense Form Styles */
+.expense-form {
+  max-width: 600px;
+  margin: 2em auto;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  font-family: "Open Sans", sans-serif;
+}
+
+.expense-form label {
+  display: block;
+  margin-top: 1em;
+}
+
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  margin-top: 0.5em;
+  padding: 0.7em;
+}
+
+.expense-form button {
+  margin-top: 1em;
+  background-color: #004b8d;
+  color: white;
+  padding: 0.7em 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.expense-form button:hover {
+  background-color: #1565c0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .expense-form {
+    width: 90%;
+  }
+}

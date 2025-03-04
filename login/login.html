@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Personal Finance Tracker - Login</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <!-- Navigation bar (site-wide) -->
+    <nav>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../register/register.html">Register</a></li>
+        <li><a href="../login/login.html">Login</a></li>
+        <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+        <li><a href="../add_expense/add_expense.html">Add Expense</a></li>
+      </ul>
+    </nav>
+
+    <!-- Login Form -->
+    <!-- Comment: This form allows existing users to log in -->
+    <form action="#" method="post" class="login-form">
+      <div>
+        <h1>Login</h1>
+        <p>Please fill in this form to sign in to your account.</p>
+        <hr />
+
+        <label for="email"><b>Email</b></label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          name="email"
+          id="email"
+          required
+        />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          id="psw"
+          required
+        />
+
+        <hr />
+        <!-- Future improvement: Add "Remember me" checkbox or password reset link -->
+        <button type="submit">Login</button>
+      </div>
+
+      <div>
+        <p>
+          Don't have an account?
+          <a href="../register/register.html">Sign up</a>.
+        </p>
+      </div>
+    </form>
+  </body>
+</html>
