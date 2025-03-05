@@ -64,3 +64,6 @@ export const getAllExpenses = () => {
     });
 };
 
+// In the future, add a remove expense function
+// When the user clicks on a delete button, call this function and remove the expense from the list
+// and from the database
