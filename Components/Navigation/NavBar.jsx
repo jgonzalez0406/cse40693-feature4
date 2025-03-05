@@ -1,10 +1,10 @@
-import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
+import React from 'react';
 
 // Navbar Component
 export default function Navbar() {
-  return html`
+  return (
     <nav>
-      <ul class="nav-list">
+      <ul className="nav-list">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../register/register.html">Register</a></li>
         <li><a href="../login/login.html">Login</a></li>
@@ -12,5 +12,5 @@ export default function Navbar() {
         <li><a href="../add_expense/add_expense.html">Add Expense</a></li>
       </ul>
     </nav>
-  `;
+  );
 }
