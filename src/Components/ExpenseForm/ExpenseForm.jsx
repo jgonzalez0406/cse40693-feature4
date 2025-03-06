@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import AddExpenseForm from './AddExpenseForm';
-import { getAllExpenses } from '../../src/Common/Services/ExpenseTypeService'; // Import the function to get expenses
+import { getAllExpenses } from '../../Common/Services/ExpenseTypeService'; // Import the function to get expenses
 
+
+// Parent component that renders the AddExpenseForm and a list of expenses
 function App() {
   const [expenses, setExpenses] = useState([]);
 

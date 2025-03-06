@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Parse from 'parse';
-import Components from "../Components/Components";
+import Components from "./Components/Components";
 
 
-import Navbar from '../Components/Navigation/Navbar'; // Importing the NavBar
+import Navbar from './Components/Navigation/Navbar'; // Importing the NavBar
 
 const Env = {
   APPLICATION_ID: "TqxNU8zQD14G5gx5IQHU30qe0gTBEFwDdciKG85C",

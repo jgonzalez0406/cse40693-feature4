@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { createExpense } from '../../src/Common/Services/ExpenseTypeService'; // Import the createExpense function
+import { createExpense } from '../../Common/Services/ExpenseTypeService'; // Import the createExpense function
 
+// Child component that renders a form to add a new expense
 function AddExpenseForm({ onAddExpense }) {
   const [expense, setExpense] = useState({
     name: '',
