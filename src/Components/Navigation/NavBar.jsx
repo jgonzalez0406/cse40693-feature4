@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 // Navbar Component
 export default function Navbar() {
-  // TODO: switch a tags to Link Component in react-router-dom
   return (
     <nav>
       <ul className="nav-list">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../register/register.html">Register</a></li>
-        <li><a href="../login/login.html">Login</a></li>
-        <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
-        <li><a href="../add_expense/add_expense.html">Add Expense</a></li>
+        {/* Each Link points to a route you define in <Routes> */}
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/register">Register</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
+        <li><Link to="/add_expense">Add Expense</Link></li>
       </ul>
     </nav>
   );
 }
+
