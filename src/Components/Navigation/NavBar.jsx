@@ -2,6 +2,7 @@ import React from 'react';
 
 // Navbar Component
 export default function Navbar() {
+  // TODO: switch a tags to Link Component in react-router-dom
   return (
     <nav>
       <ul className="nav-list">
