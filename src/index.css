@@ -24,6 +24,10 @@
   .nav-list a:hover {
     background-color: #1565c0;
   }
+
+  .nav-list .logout {
+    margin-left: auto; /* Pushes the Logout link to the far right */
+  }
   
   /* Dashboard Container */
   .dashboard-container {
