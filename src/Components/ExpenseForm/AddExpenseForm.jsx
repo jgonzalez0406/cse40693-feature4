@@ -23,7 +23,7 @@ function AddExpenseForm({ onAddExpense }) {
 
       // Once the expense is created, pass it to the parent
       onAddExpense(newExpense);
-  
+
       // Clear the form fields after successful submission
       setExpense({
         name: "",
@@ -35,51 +35,60 @@ function AddExpenseForm({ onAddExpense }) {
       console.error("Error creating expense:", error);
     }
   };
-  
 
+  // Wrap the form in a Bootstrap container and test some heading/button classes
   return (
-    <form class="expense-form" onSubmit={handleSubmit}>
-      <label>Expense Name</label>
-      <input
-        type="text"
-        name="name"
-        value={expense.name}
-        onChange={handleChange}
-        required
-      />
-      <label>Date</label>
-      <input
-        type="date"
-        name="date"
-        value={expense.date}
-        onChange={handleChange}
-        required
-      />
-      <label>Category</label>
-      <select
-        name="category"
-        value={expense.category}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Select Category</option>
-        <option value="Groceries">Groceries</option>
-        <option value="Utilities">Utilities</option>
-        <option value="Rent/Mortgage">Rent/Mortgage</option>
-        <option value="Subscriptions">Subscriptions</option>
-        <option value="Others">Others</option>
-      </select>
-      <label>Amount</label>
-      <input
-        type="number"
-        name="amount"
-        step="0.01"
-        value={expense.amount}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Add Expense</button>
-    </form>
+    <div className="container mt-4">
+      <h2 className="text-center mb-4">Test Bootstrap Here</h2>
+      <form className="expense-form" onSubmit={handleSubmit}>
+        <label>Expense Name</label>
+        <input
+          type="text"
+          name="name"
+          value={expense.name}
+          onChange={handleChange}
+          required
+          className="form-control mb-2"
+        />
+        <label>Date</label>
+        <input
+          type="date"
+          name="date"
+          value={expense.date}
+          onChange={handleChange}
+          required
+          className="form-control mb-2"
+        />
+        <label>Category</label>
+        <select
+          name="category"
+          value={expense.category}
+          onChange={handleChange}
+          required
+          className="form-select mb-2"
+        >
+          <option value="">Select Category</option>
+          <option value="Groceries">Groceries</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Rent/Mortgage">Rent/Mortgage</option>
+          <option value="Subscriptions">Subscriptions</option>
+          <option value="Others">Others</option>
+        </select>
+        <label>Amount</label>
+        <input
+          type="number"
+          name="amount"
+          step="0.01"
+          value={expense.amount}
+          onChange={handleChange}
+          required
+          className="form-control mb-3"
+        />
+        <button type="submit" className="btn btn-primary">
+          Add Expense
+        </button>
+      </form>
+    </div>
   );
 }
 
