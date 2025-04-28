@@ -52,6 +52,7 @@ Expenses.collection = [];
 export const getAllExpenses = () => {
   const Expense = Parse.Object.extend("Expense");
   const query = new Parse.Query(Expense);
+  query.include("category");
   return query
     .find()
     .then((results) => {

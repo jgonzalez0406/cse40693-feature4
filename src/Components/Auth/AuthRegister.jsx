@@ -19,7 +19,6 @@ const AuthRegister = () => {
   // redirect already authenticated users back to home
   useEffect(() => {
     if (checkUser()) {
-      alert("You are already logged in");
       navigate("/");
     }
   }, [navigate]);
