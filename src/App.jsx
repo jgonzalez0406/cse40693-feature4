@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import Parse from 'parse';
+// src/App.jsx
+import React, { useState, useEffect, createContext } from "react";
 import Components from "./Components/Components";
+import "./index.css";  // your global CSS with --bg / --fg variables
 
+// Create a ThemeContext for toggling light/dark
+export const ThemeContext = createContext();
 
-import Navbar from './Components/Navigation/Navbar'; // Importing the NavBar
+export default function App() {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
 
-const Env = {
-  APPLICATION_ID: "TqxNU8zQD14G5gx5IQHU30qe0gTBEFwDdciKG85C",
-  JAVASCRIPT_KEY: "tgvd2ClphJz4GwVy7mANMrvE50uhE9oZN2kmAboP",
-  SERVER_URL: "https://parseapi.back4app.com/"
-}
+  // Whenever theme changes, update the HTML attribute and persist it
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
-Parse.serverURL = Env.SERVER_URL;
+  // Toggle between "light" and "dark"
+  const toggleTheme = () =>
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
 
-function App() {
-  
   return (
-    <Components/>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <Components />
+    </ThemeContext.Provider>
   );
 }
-
-export default App;
-

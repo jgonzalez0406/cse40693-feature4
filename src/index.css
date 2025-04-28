@@ -1,4 +1,37 @@
 /* dashboard.css */
+/* Light and Dark Mode implementation */
+:root {
+  /* light mode */
+  --bg:         #ffffff;
+  --fg:         #212529;
+  --card-bg:    #ffffff;
+  --table-head: #f8f9fa;
+}
+
+[data-theme="dark"] {
+  /* dark mode overrides */
+  --bg:         #212529;
+  --fg:         #f8f9fa;
+  --card-bg:    #343a40;
+  --table-head: #3e444a;
+}
+
+/* Apply globally */
+body {
+  background-color: var(--bg) !important;
+  color:            var(--fg) !important;
+}
+
+/* Ensure Bootstrap cards match */
+.card {
+  background-color: var(--card-bg) !important;
+}
+
+/* Table header override */
+.table-light thead {
+  background-color: var(--table-head) !important;
+}
+
 
 /* Navigation */
 .nav-list {
