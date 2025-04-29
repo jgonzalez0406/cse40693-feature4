@@ -13,21 +13,27 @@ function AddExpenseForm({ onAddExpense }) {
   });
 
   // Compute classes based on theme
-  const inputClass = theme === 'dark'
-    ? 'form-control bg-dark text-white border-secondary mb-2'
-    : 'form-control mb-2';
+  const baseInputClass = 'form-control mb-2';
+  const inputClass =
+    theme === 'dark'
+      ? `${baseInputClass} bg-dark text-white border-secondary`
+      : baseInputClass;
+  const baseSelectClass = 'form-select mb-2';
+  const selectClass =
+    theme === 'dark'
+      ? `${baseSelectClass} bg-dark text-white border-secondary`
+      : baseSelectClass;
+  const buttonClass =
+    theme === 'dark' ? 'btn btn-outline-light' : 'btn btn-primary';
 
-  const selectClass = theme === 'dark'
-    ? 'form-select bg-dark text-white border-secondary mb-2'
-    : 'form-select mb-2';
+  // Toggle form background via the expense-form class
+  const formBgClass =
+    theme === 'dark'
+      ? 'expense-form p-4 rounded bg-secondary bg-opacity-25'
+      : 'expense-form p-4 rounded bg-white';
 
-  const buttonClass = theme === 'dark'
-    ? 'btn btn-outline-light'
-    : 'btn btn-primary';
-
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setExpense({ ...expense, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,8 +48,9 @@ function AddExpenseForm({ onAddExpense }) {
 
   return (
     <div className={`container mt-4 ${theme === 'dark' ? 'text-white' : ''}`}>
-      <h2 className="text-center mb-4">Add a New Expense</h2>
-      <form className="expense-form" onSubmit={handleSubmit}>
+      {/* Removed duplicate heading here */}
+
+      <form className={formBgClass} onSubmit={handleSubmit}>
         <label className="form-label">Expense Name</label>
         <input
           type="text"
