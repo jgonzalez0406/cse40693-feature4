@@ -1,7 +1,8 @@
 // src/App.jsx
 import React, { useState, useEffect, createContext } from "react";
 import Components from "./Components/Components";
-import "./index.css";  // your global CSS with --bg / --fg variables
+import "bootstrap/dist/css/bootstrap.min.css";
+//import "./index.css";  // your global CSS with --bg / --fg variables
 
 // Create a ThemeContext for toggling light/dark
 export const ThemeContext = createContext();

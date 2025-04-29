@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { createExpense } from '../../Common/Services/ExpenseTypeService'; // Import the createExpense function
+// src/Components/ExpenseForm/AddExpenseForm.jsx
+import React, { useState, useContext } from 'react';
+import { createExpense } from '../../Common/Services/ExpenseTypeService';
+import { ThemeContext } from '../../App';
 
-// Child component that renders a form to add a new expense
 function AddExpenseForm({ onAddExpense }) {
+  const { theme } = useContext(ThemeContext);
   const [expense, setExpense] = useState({
     name: '',
     date: '',
@@ -10,62 +12,65 @@ function AddExpenseForm({ onAddExpense }) {
     amount: '',
   });
 
+  // Compute classes based on theme
+  const inputClass = theme === 'dark'
+    ? 'form-control bg-dark text-white border-secondary mb-2'
+    : 'form-control mb-2';
+
+  const selectClass = theme === 'dark'
+    ? 'form-select bg-dark text-white border-secondary mb-2'
+    : 'form-select mb-2';
+
+  const buttonClass = theme === 'dark'
+    ? 'btn btn-outline-light'
+    : 'btn btn-primary';
+
   const handleChange = (e) => {
     setExpense({ ...expense, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the page from reloading
-    
+    e.preventDefault();
     try {
-      // Call createExpense and await the result
       const newExpense = await createExpense(expense);
-
-      // Once the expense is created, pass it to the parent
       onAddExpense(newExpense);
-
-      // Clear the form fields after successful submission
-      setExpense({
-        name: "",
-        date: "",
-        category: "",
-        amount: "",
-      });
+      setExpense({ name: '', date: '', category: '', amount: '' });
     } catch (error) {
-      console.error("Error creating expense:", error);
+      console.error('Error creating expense:', error);
     }
   };
 
-  // Wrap the form in a Bootstrap container and test some heading/button classes
   return (
-    <div className="container mt-4">
-      <h2 className="text-center mb-4">Test Bootstrap Here</h2>
+    <div className={`container mt-4 ${theme === 'dark' ? 'text-white' : ''}`}>
+      <h2 className="text-center mb-4">Add a New Expense</h2>
       <form className="expense-form" onSubmit={handleSubmit}>
-        <label>Expense Name</label>
+        <label className="form-label">Expense Name</label>
         <input
           type="text"
           name="name"
           value={expense.name}
           onChange={handleChange}
           required
-          className="form-control mb-2"
+          className={inputClass}
         />
-        <label>Date</label>
+
+        <label className="form-label">Date</label>
         <input
           type="date"
           name="date"
           value={expense.date}
           onChange={handleChange}
           required
-          className="form-control mb-2"
+          className={inputClass}
         />
-        <label>Category</label>
+
+        <label className="form-label">Category</label>
         <select
           name="category"
           value={expense.category}
           onChange={handleChange}
           required
-          className="form-select mb-2"
+          className={selectClass}
         >
           <option value="">Select Category</option>
           <option value="Groceries">Groceries</option>
@@ -74,7 +79,8 @@ function AddExpenseForm({ onAddExpense }) {
           <option value="Subscriptions">Subscriptions</option>
           <option value="Others">Others</option>
         </select>
-        <label>Amount</label>
+
+        <label className="form-label">Amount</label>
         <input
           type="number"
           name="amount"
@@ -82,11 +88,14 @@ function AddExpenseForm({ onAddExpense }) {
           value={expense.amount}
           onChange={handleChange}
           required
-          className="form-control mb-3"
+          className={inputClass}
         />
-        <button type="submit" className="btn btn-primary">
-          Add Expense
-        </button>
+
+        <div className="d-grid mt-3">
+          <button type="submit" className={buttonClass}>
+            Add Expense
+          </button>
+        </div>
       </form>
     </div>
   );
