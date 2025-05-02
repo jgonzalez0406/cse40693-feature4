@@ -5,6 +5,7 @@ Added
       - Dashboard uses backend data and will create a graph (using React Charts) and a summary based on it
   - Ability to toggle a light/dark mode, which works on every page
   - Ability to filter expenses on the Add Expense page
+    
 Changed 
   - Added Dashboard as a protected route
 
