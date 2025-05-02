@@ -16,6 +16,27 @@
   --table-head: #3e444a;
 }
 
+/* ——— Add these placeholder overrides right here ——— */
+[data-theme="dark"] .form-control::placeholder,
+[data-theme="dark"] .form-select::placeholder {
+  color: var(--fg);  /* use your dark-mode foreground color */
+  opacity: 1;        /* ensure it isn’t dimmed */
+}
+
+/* Calendar icon → white */
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
+}
+
+/* Select arrow → white */
+[data-theme="dark"] select.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Cpath%20fill='%23f8f9fa'%20d='M1%205l7%207%207-7H1z'/%3E%3C/svg%3E");  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+}
+
+
 /* Apply globally */
 body {
   background-color: var(--bg) !important;
