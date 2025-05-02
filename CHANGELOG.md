@@ -1,4 +1,5 @@
 [0.4.0] - 2025-05-02
+
 Added
   - Bootstrap for styling (Add Expense and Dashboard pages)
   - Dashboard Components (DashboardModule, Dashboard, DashboardSummary, DashboardGraph)
@@ -10,6 +11,7 @@ Changed
   - Added Dashboard as a protected route
 
 [0.3.0] - 2025-04-01
+
 Added
   - Authentication & Authorization flow using Parse-based AuthService
   - Login, Signup, and Logout components (AuthLogin, AuthRegister, AuthLogout)
@@ -25,9 +27,9 @@ Changed
 
 [0.2.0] - 2025-03-07
 Added 
-  Separate Parse Models - Expenses and Expense Categories
-  React - ExpenseForm.js acts as a Parent Component and AddExpenseForm.js acts as a Child Component
+  - Separate Parse Models - Expenses and Expense Categories
+  - React - ExpenseForm.js acts as a Parent Component and AddExpenseForm.js acts as a Child Component
   
 Changed
-  Vite - Site now utilizes Vite and has adopted a new file structure because of it
-  Expense Logic - Added logic to officially add expenses and also keep track of previous and newly added ones.
+  - Vite - Site now utilizes Vite and has adopted a new file structure because of it
+  - Expense Logic - Added logic to officially add expenses and also keep track of previous and newly added ones.
