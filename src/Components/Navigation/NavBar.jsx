@@ -22,7 +22,6 @@ export default function Navbar() {
               {theme === "light" ? "🌙 Dark" : "☀️ Light"}
             </button>
           </li>
-          <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/auth/register">Register</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/auth/login">Login</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/auth/dashboard">Dashboard</Link></li>

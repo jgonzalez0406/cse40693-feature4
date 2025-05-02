@@ -1,47 +1,64 @@
 // src/Components/Dashboard/Dashboard.jsx
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DashboardGraph from './DashboardGraph.jsx';
 import Summary from './DashboardSummary.jsx';
 import { ThemeContext } from '../../App';
+import { getAllExpenses } from '../../Common/Services/ExpenseTypeService';
 
+// Stateful parent component for the dashboard
+// It fetches expenses data and passes it to child components for rendering
 export default function Dashboard() {
   const { theme } = useContext(ThemeContext);
 
-  // In light mode keep the original dark header; in dark mode switch to grey
+  // State to hold expenses data and loading state
+  const [expenses, setExpenses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch expenses data when the component mounts
+  useEffect(() => {
+    const fetchExpenses = async () => {
+      try {
+        const allExpenses = await getAllExpenses();
+        setExpenses(allExpenses);
+      } catch (error) {
+        console.error('Error fetching expenses:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchExpenses();
+  }, []);
+
   const headerClass = theme === 'dark'
     ? 'bg-secondary text-white'
     : 'bg-dark text-white';
 
-  // Toggle graph container background/text based on theme
   const graphClass = theme === 'dark'
     ? 'bg-secondary text-white'
     : 'bg-light text-dark';
 
-  // Toggle summary container background/text based on theme
   const summaryClass = theme === 'dark'
     ? 'bg-secondary text-white'
     : 'bg-light text-dark';
 
   return (
     <div className="container my-4">
-      {/* Header: original dark in light mode, grey in dark mode */}
+      {/* Header */}
       <div className={`${headerClass} p-4 rounded mb-4 shadow`}>
         <h2 className="text-center m-0">Dashboard</h2>
       </div>
 
-      {/* Main content */}
+      {/* Main Content */}
       <div className="row">
-        {/* Left column - Graph */}
         <div className="col-md-8 mb-3">
           <div className={`${graphClass} p-4 rounded shadow h-100`}>
-            <DashboardGraph />
+            <DashboardGraph expenses={expenses} loading={loading} />
           </div>
         </div>
 
-        {/* Right column - Summary */}
         <div className="col-md-4 mb-3">
           <div className={`${summaryClass} p-4 rounded shadow h-100`}>
-            <Summary />
+            <Summary expenses={expenses} loading={loading} />
           </div>
         </div>
       </div>

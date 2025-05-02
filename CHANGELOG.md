@@ -4,6 +4,7 @@ Added
   - Bootstrap for styling (Add Expense and Dashboard pages)
   - Dashboard Components (DashboardModule, Dashboard, DashboardSummary, DashboardGraph)
       - Dashboard uses backend data and will create a graph (using React Charts) and a summary based on it
+      - Ability to export the summary as a pdf
   - Ability to toggle a light/dark mode, which works on every page
   - Ability to filter expenses on the Add Expense page
     
